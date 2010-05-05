@@ -19,6 +19,5 @@ production:
   adapter: mysql
   database: p577r674_cc
   username: p577r674_cc
-  password: Gremlin5! 
-  pool: 5
-  timeout: 5000
+  password: Gremlin5!
+  host: localhost
