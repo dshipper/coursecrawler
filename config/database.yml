@@ -17,7 +17,8 @@ test:
 
 production:
   adapter: mysql
-  database: p577r674_cc
-  username: p577r674_cc
+  database: coursecrawler_production
+  host: mysql.coursecrawler.com
+  username: coursecrawler
   password: Gremlin5!
-  host: localhost
+    
