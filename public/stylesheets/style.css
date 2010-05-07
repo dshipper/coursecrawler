@@ -1,0 +1,129 @@
+/*
+Theme Name: Course Crawler
+Theme URI: http://www.coursecrawler.com/
+Description: Course Crawler theme.
+Version: 1.0
+Author: Dan Shipper
+Author URI: http://www.conveniencesoftware.com
+*/
+html{
+
+}
+body{
+	background: #c8f580;
+	font: 12px/18px "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif; 	
+}
+
+img{
+	border: 0;	
+}
+a {
+	outline: none;	
+}
+a img{
+	border: none;	
+}
+.container{
+	padding-top: 50px;
+	width: 800px;
+	margin: auto;	
+}
+#logo{
+	position: relative;	
+	bottom: 5px;
+	left: 5px;
+}
+
+ul.nav{
+	font-size: 10px;
+	font-family: "Myriad", "Lucida Grande", serif;
+	float: right;
+	list-style: none;
+	position: relative;
+	right: 10px;
+}
+
+.nav li {
+	float: left;	
+	padding-left: 5px;
+	sfont-family: "Myriad", "Lucida Grande", serif;
+	font-size: 15px;
+	
+}
+.nav li a:link, .nav li a:visited {
+	color: black;
+	font-family: "Myriad", "Lucida Grande", serif;
+	font-size: 17px;
+	text-decoration: none;
+	padding: 2px 20px;
+	margin-left: -1px;
+}
+
+.nav li a:hover {
+	color: #3c6097;
+}
+
+.nav li.active a {
+	color: #fff;
+}
+
+#main-right{
+	float: right;
+	width: 420px;
+}
+#main-left{
+	width: 300px;
+	padding-left: 30px;
+}
+
+.top-top{
+	background: url('images/bg-top.png') no-repeat;	
+	width: 900px;
+	height: 10px;
+}
+
+.top-repeat{
+	background: url('images/bg-center.png') repeat;	
+	width: 900px;
+	height: 37px;
+	
+}
+
+.bg-repeat{
+	background: url('images/bg-center.png') repeat;	
+	width: 900px;
+	/*overflow: hidden;*/
+	/*height: 37px;*/
+	
+}
+
+.top-bottom{
+	background: url('images/bg-bottom.png') no-repeat;	
+	width: 900px;
+	height: 10px;
+}
+
+#login-right{
+	float: right;
+	padding-right: 250px;
+}
+
+#banner{
+	z-index: 2;
+	float: right;
+	position: relative;
+	bottom: 5px;
+}
+
+#question{
+	z-index: 2;
+	position: relative;
+	bottom: 320px;
+	left: 170px;
+}
+
+#main-image{
+	position: relative;
+	top: 75px;
+}
+

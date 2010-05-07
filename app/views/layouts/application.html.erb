@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Courses: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'scaffold' %>
+  <%= stylesheet_link_tag 'style' %>
+</head>
+<body>
+<div class="container">
+	<div class="top-top"></div>
+	<div class="top-repeat">
+		<ul class="nav">
+				<% if !logged_in? %>
+					<li><%= link_to "home", :controller => "home", :action => "index" %></li>
+					<li><%=	link_to "login/signup", :controller => "users", :action => "new" %></li>
+				<% else %>
+					<li><%=	link_to "my courses", :controller => "courses", :action => "index" 	%></li>
+					<li><%= link_to "logout", logout_path %></li>
+				<% end %>
+
+				<li><%= link_to "about", :controller => "home", :action => "about" %></li>
+				<li><%= link_to "store", :controller => "home", :action => "store" %></li>
+			</ul>
+	<a href="/"><%= image_tag("logo.png", :id => "logo") %> </a>
+	</div>
+	<div class="top-bottom"></div>
+	<p style="color: green"><%= flash[:notice] %></p>
+	<div class="top-top"></div>
+	<div class="bg-repeat">
+	<%= yield %>
+	</div>
+	<div class="top-bottom">
+</div><!-- end container -->
+</body>
+</html>
