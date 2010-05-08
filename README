@@ -1,5 +1,5 @@
+Iteration 2
 This iteration will include:
-	-the ability to add courses including a course title, a teacher name, a course description
-	-the ability to remove courses
-	-the ability to view all courses in a list
+	-some authentication changes to make sure only authorized users can delete courses
+	-the ability to review a course
 	
