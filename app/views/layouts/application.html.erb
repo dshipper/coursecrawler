@@ -27,10 +27,12 @@
 	<a href="/"><%= image_tag("logo.png", :id => "logo") %> </a>
 	</div>
 	<div class="top-bottom"></div>
-	<p style="color: green"><%= flash[:notice] %></p>
 	<div class="top-top"></div>
 	<div class="bg-repeat">
-	<%= yield %>
+	<div class="content">	
+		<p style="color: green"><%= flash[:notice] %></p>
+		<%= yield %>
+	</div>
 	</div>
 	<div class="top-bottom">
 </div><!-- end container -->

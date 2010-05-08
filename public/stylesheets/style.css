@@ -28,6 +28,12 @@ a img{
 	width: 800px;
 	margin: auto;	
 }
+
+.content{
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+}
 #logo{
 	position: relative;	
 	bottom: 5px;
@@ -80,19 +86,20 @@ ul.nav{
 	background: url('images/bg-top.png') no-repeat;	
 	width: 900px;
 	height: 10px;
+	overflow: hidden;
 }
 
 .top-repeat{
 	background: url('images/bg-center.png') repeat;	
 	width: 900px;
 	height: 37px;
-	
+	overflow: hidden;
 }
 
 .bg-repeat{
 	background: url('images/bg-center.png') repeat;	
 	width: 900px;
-	/*overflow: hidden;*/
+	overflow: hidden;
 	/*height: 37px;*/
 	
 }
@@ -101,6 +108,8 @@ ul.nav{
 	background: url('images/bg-bottom.png') no-repeat;	
 	width: 900px;
 	height: 10px;
+	overflow: hidden;
+	padding-bottom: 10px;
 }
 
 #login-right{

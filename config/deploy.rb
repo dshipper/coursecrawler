@@ -1,25 +1,34 @@
-default_run_options[:pty] = true
-
-# be sure to change these
-set :user, 'coursecrawler'
-set :domain, 'coursecrawler.com'
-set :application, 'coursecrawler'
-
-# the rest should be good
-set :repository,  "#{user}@#{domain}:git/#{application}.git"
-set :deploy_to, "/home/#{user}/#{domain}"
+defaset :domain, "saintgeorges.dreamhost.com"   #the one you ssh into
+set :user, "coursecrawler"            #the user you created when setting up the domain (has to have shell access)
+set :application, "coursecrawler"          #the name of the folder you chose when setting up the domain
+set :applicationdir, "/home/#{user}/#{application}"  # The standard Dreamhost setup
+ 
+set :repository, "coursecrawler"
+set :scm, :git
+ 
+# deploy config
+set :deploy_to, applicationdir       # Where on the server your app will be deployed
 set :deploy_via, :remote_cache
-set :scm, 'git'
-set :branch, 'master'
-set :git_shallow_clone, 1
-set :scm_verbose, true
+ 
+# additional settings
+default_run_options[:pty] = true  # Forgo errors when deploying from windows
+#ssh_options[:keys] = %w(/Path/To/id_rsa)            # If you are using ssh_keys
+set :chmod755, "app config db lib public vendor script script/* public/disp*"
 set :use_sudo, false
-
-server domain, :app, :web
-role :db, domain, :primary => true
-
+ 
+role :app, domain
+role :web, domain
+role :db,  domain, :primary => true
+ 
+#Passenger stop, start, and restart calls
 namespace :deploy do
-  task :restart do
+  desc "Restarting mod_rails with restart.txt"
+  task :restart, :roles => :app, :except => { :no_release => true } do
     run "touch #{current_path}/tmp/restart.txt"
+  end
+ 
+  [:start, :stop].each do |t|
+    desc "#{t} task is a no-op with mod_rails"
+    task t, :roles => :app do ; end
   end
 end
