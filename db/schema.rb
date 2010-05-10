@@ -9,12 +9,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100509202603) do
+ActiveRecord::Schema.define(:version => 20100510162937) do
 
   create_table "courses", :force => true do |t|
     t.string   "name"
     t.string   "teacher_name"
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reviews", :force => true do |t|
+    t.string   "course_adjective_one"
+    t.string   "course_adjective_two"
+    t.string   "course_adjective_three"
+    t.string   "professor_adjective_one"
+    t.string   "professor_adjective_two"
+    t.string   "professor_adjective_three"
+    t.integer  "difficulty"
+    t.integer  "interest_level"
+    t.integer  "professor"
+    t.boolean  "friend"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -30,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20100509202603) do
     t.string   "remember_token",            :limit => 40
     t.datetime "remember_token_expires_at"
     t.string   "activation_code"
+    t.datetime "activated_at"
   end
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true

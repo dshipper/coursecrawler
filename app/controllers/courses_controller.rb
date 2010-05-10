@@ -1,6 +1,7 @@
 class CoursesController < ApplicationController
   
   before_filter :login_required
+  #has_many :reviews
   # GET /courses
   # GET /courses.xml
   def index
