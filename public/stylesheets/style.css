@@ -7,11 +7,15 @@ Author: Dan Shipper
 Author URI: http://www.conveniencesoftware.com
 */
 html{
-
+	height: 100%;
 }
 body{
 	background: #c8f580;
-	font: 12px/18px "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif; 	
+	font: 12px/18px "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif; 
+	height: 100%;
+	width: 100%;
+	position: relative;
+	right: 6px;	
 }
 
 img{
@@ -23,10 +27,18 @@ a {
 a img{
 	border: none;	
 }
+
+.big-container{
+	min-height: 100%;
+	margin-bottom: -460px;
+	background: #000000;
+}
+
 .container{
 	padding-top: 50px;
 	width: 800px;
-	margin: auto;	
+	margin: auto;
+	padding-right: 64px;
 }
 
 .content{
@@ -34,6 +46,8 @@ a img{
 	padding-right: 10px;
 	padding-bottom: 10px;
 }
+
+
 #logo{
 	position: relative;	
 	bottom: 5px;
@@ -52,7 +66,7 @@ ul.nav{
 .nav li {
 	float: left;	
 	padding-left: 5px;
-	sfont-family: "Myriad", "Lucida Grande", serif;
+	font-family: "Myriad", "Lucida Grande", serif;
 	font-size: 15px;
 	
 }
@@ -134,5 +148,27 @@ ul.nav{
 #main-image{
 	position: relative;
 	top: 75px;
+}
+
+.footer-old{
+	float: right;
+	color: black;
+	font-size: 12px;
+	position: relative;
+	left: 100px;
+}
+
+.footer{
+	height: 130px;
+	position: relative;
+	border-top-style: solid;
+	border-top-width = .5px;
+	border-top-color: black;
+	background: #7ab321;
+}
+
+.clearfooter {
+	height: 335px;
+	clear: both;
 }
 
