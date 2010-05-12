@@ -1,10 +1,10 @@
 class CoursesController < ApplicationController
   
-  #before_filter :login_required
+  before_filter :login_required
   # GET /courses
   # GET /courses.xml
   def index
-    @pagetitle = ""
+    @pagetitle = "Course Crawler"
     @courses = Course.all
 
     respond_to do |format|
@@ -17,7 +17,7 @@ class CoursesController < ApplicationController
   # GET /courses/1.xml
   def show
     @course = Course.find(params[:id])
-    if @course.reviews
+    if !@course.reviews.empty?
       @course_adj = []
       course_adj_count = Hash.new(0)
       c_adj = Array.new

@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   # GET /reviews
   # GET /reviews.xml
-  #before_filter :login_required
+  before_filter :login_required
   def index
     @reviews = Review.all
 
@@ -15,7 +15,7 @@ class ReviewsController < ApplicationController
   # GET /reviews/1.xml
   def show
     @review = Review.find(params[:id])
-
+    @pagetitle = "Course Crawler Review"
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @review }

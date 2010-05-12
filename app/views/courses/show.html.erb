@@ -12,7 +12,7 @@
   <b>Description:</b>
   <%=h @course.description %>
 </p>
-
+<% if(!@course.reviews.empty?) %>
 This course has been reviewed <%= @number_of_reviews %> times.<br>
 
 The top three adjectives most commonly associated with this course were: 
@@ -25,7 +25,7 @@ The average difficulty reported by students in this class was: <%= @average_diff
 The average interest level that this class provided was: <%= @average_interest_level %><br>
 The level of engagement that the professor provides is: <%= @average_professor %><br>
 <%= @average_recommend %>% of students would recommend this class to a friend.<br>
-
+<% end %>
 <%= link_to 'Review this Course', "/reviews/new?course=#{@course.id}" %> |
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>
