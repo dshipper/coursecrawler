@@ -1,0 +1,40 @@
+<h1>Create a New Review</h1>
+
+<% form_for(@review) do |f| %>
+  <%= f.error_messages %>
+ 	<% if params[:course] %><input type="hidden" id="review_course_id" name="review[course_id]" value="<%= params[:course] %>" /><% end %>  
+
+	
+    1. Please describe this course using three adjectives<br><br>
+	<%= f.text_field :course_adjective_one %>
+    <%= f.text_field :course_adjective_two %>
+    <%= f.text_field :course_adjective_three %>
+  
+	<br><br><br>
+	2. Please describe the professor using three adjectives<br><br>
+    <%= f.text_field :professor_adjective_one %>
+    <%= f.text_field :professor_adjective_two %>
+    <%= f.text_field :professor_adjective_three %>
+
+  <p>
+    3. How would you rate this course's difficulty on a scale of 1-10 (10 is the hardest)<br><br>
+    <%= f.text_field :difficulty %>
+  </p>
+  <p>
+    4. How would you rate how interested you were in the course's subject matter scale on a scale of 1-10 (10 is most interesting)<br><br>
+    <%= f.text_field :interest_level %>
+  </p>
+  <p>
+	5. How would you rate how engaging the professor is on a scale 1-10 (10 is most engaging)
+    <%= f.text_field :professor %>
+  </p>
+  <p>
+    6. Check this box if you would recommend this course to a friend
+    <%= f.check_box :friend %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', reviews_path %>

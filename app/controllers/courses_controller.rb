@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
   
-  before_filter :login_required
+  #before_filter :login_required
   # GET /courses
   # GET /courses.xml
   def index
@@ -17,7 +17,64 @@ class CoursesController < ApplicationController
   # GET /courses/1.xml
   def show
     @course = Course.find(params[:id])
-
+    if @course.reviews
+      @course_adj = []
+      course_adj_count = Hash.new(0)
+      c_adj = Array.new
+    
+      @prof_adj = []
+      prof_adj_count = Hash.new(0)
+      p_adj = Array.new
+    
+      @number_of_reviews = 0
+      difficulty = 0
+      interest_level = 0
+      professor = 0
+    
+      recommend = 0
+    
+      for review in @course.reviews
+        c_adj << review.course_adjective_one
+        c_adj << review.course_adjective_two
+        c_adj << review.course_adjective_three
+      
+        p_adj << review.professor_adjective_one
+        p_adj << review.professor_adjective_two
+        p_adj << review.professor_adjective_three
+      
+        @number_of_reviews += 1
+        difficulty += review.difficulty
+        interest_level += review.interest_level
+        professor += review.professor
+      
+        if review.friend == true
+          recommend += 1
+        end
+      end
+    
+      c_adj.each do |c|
+        course_adj_count[c] += 1
+      end
+      i = 0
+      course_adj_count.sort_by{|k,v| -v}.each { |elem|
+        @course_adj[i] = elem[0]
+        i+=1
+      }  
+  
+      p_adj.each do |p|
+        prof_adj_count[p] += 1
+      end
+      i = 0
+      prof_adj_count.sort_by{|k,v| -v}.each{|elem|
+        @prof_adj[i] = elem[0]
+        i+=1
+      }
+    
+      @average_difficulty = difficulty/@number_of_reviews
+      @average_interest_level = interest_level/@number_of_reviews
+      @average_professor = professor/@number_of_reviews
+      @average_recommend = recommend/@number_of_reviews
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @course }

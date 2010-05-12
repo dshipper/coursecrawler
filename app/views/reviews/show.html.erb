@@ -1,0 +1,53 @@
+<p>
+  <b>Course adjective one:</b>
+  <%=h @review.course_adjective_one %>
+</p>
+
+<p>
+  <b>Course adjective two:</b>
+  <%=h @review.course_adjective_two %>
+</p>
+
+<p>
+  <b>Course adjective three:</b>
+  <%=h @review.course_adjective_three %>
+</p>
+
+<p>
+  <b>Professor adjective one:</b>
+  <%=h @review.professor_adjective_one %>
+</p>
+
+<p>
+  <b>Professor adjective two:</b>
+  <%=h @review.professor_adjective_two %>
+</p>
+
+<p>
+  <b>Professor adjective three:</b>
+  <%=h @review.professor_adjective_three %>
+</p>
+
+<p>
+  <b>Difficulty:</b>
+  <%=h @review.difficulty %>
+</p>
+
+<p>
+  <b>Interest level:</b>
+  <%=h @review.interest_level %>
+</p>
+
+<p>
+  <b>Professor:</b>
+  <%=h @review.professor %>
+</p>
+
+<p>
+  <b>Friend:</b>
+  <%=h @review.friend %>
+</p>
+
+
+<%= link_to 'Edit', edit_review_path(@review) %> |
+<%= link_to 'Back', "/courses/#{@review.course_id}" %>

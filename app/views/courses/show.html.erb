@@ -13,10 +13,19 @@
   <%=h @course.description %>
 </p>
 
-<% for review in @course.reviews %>
-	<%= link_to "Review", review_path(review.id) %><br>
-	<%= link_to "Show", review %>
-<% end %>
+This course has been reviewed <%= @number_of_reviews %> times.<br>
+
+The top three adjectives most commonly associated with this course were: 
+<%= "#{@course_adj[0]}, #{@course_adj[1]}, #{@course_adj[2]}" %>
+<br>
+The top three adjectives most commonly associated with this professor were: 
+<%= "#{@prof_adj[0]}, #{@prof_adj[1]}, #{@prof_adj[2]}" %>
+<br>	
+The average difficulty reported by students in this class was: <%= @average_difficulty %><br>
+The average interest level that this class provided was: <%= @average_interest_level %><br>
+The level of engagement that the professor provides is: <%= @average_professor %><br>
+<%= @average_recommend %>% of students would recommend this class to a friend.<br>
+
+<%= link_to 'Review this Course', "/reviews/new?course=#{@course.id}" %> |
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>
-<%= link_to 'Review this Course', "/reviews/new?course=#{@course.id}" %>

@@ -1,0 +1,23 @@
+one:
+  course_adjective_one: MyString
+  course_adjective_two: MyString
+  course_adjective_three: MyString
+  professor_adjective_one: MyString
+  professor_adjective_two: MyString
+  professor_adjective_three: MyString
+  difficulty: 1
+  interest_level: 1
+  professor: 1
+  friend: false
+
+two:
+  course_adjective_one: MyString
+  course_adjective_two: MyString
+  course_adjective_three: MyString
+  professor_adjective_one: MyString
+  professor_adjective_two: MyString
+  professor_adjective_three: MyString
+  difficulty: 1
+  interest_level: 1
+  professor: 1
+  friend: false

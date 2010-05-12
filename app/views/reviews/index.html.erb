@@ -1,0 +1,38 @@
+<h1>Listing reviews</h1>
+
+<table>
+  <tr>
+    <th>Course adjective one</th>
+    <th>Course adjective two</th>
+    <th>Course adjective three</th>
+    <th>Professor adjective one</th>
+    <th>Professor adjective two</th>
+    <th>Professor adjective three</th>
+    <th>Difficulty</th>
+    <th>Interest level</th>
+    <th>Professor</th>
+    <th>Friend</th>
+  </tr>
+
+<% @reviews.each do |review| %>
+  <tr>
+    <td><%=h review.course_adjective_one %></td>
+    <td><%=h review.course_adjective_two %></td>
+    <td><%=h review.course_adjective_three %></td>
+    <td><%=h review.professor_adjective_one %></td>
+    <td><%=h review.professor_adjective_two %></td>
+    <td><%=h review.professor_adjective_three %></td>
+    <td><%=h review.difficulty %></td>
+    <td><%=h review.interest_level %></td>
+    <td><%=h review.professor %></td>
+    <td><%=h review.friend %></td>
+    <td><%= link_to 'Show', review %></td>
+    <td><%= link_to 'Edit', edit_review_path(review) %></td>
+    <td><%= link_to 'Destroy', review, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New review', new_review_path %>

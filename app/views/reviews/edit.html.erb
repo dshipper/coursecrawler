@@ -1,0 +1,52 @@
+<h1>Editing review</h1>
+
+<% form_for(@review) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :course_adjective_one %><br />
+    <%= f.text_field :course_adjective_one %>
+  </p>
+  <p>
+    <%= f.label :course_adjective_two %><br />
+    <%= f.text_field :course_adjective_two %>
+  </p>
+  <p>
+    <%= f.label :course_adjective_three %><br />
+    <%= f.text_field :course_adjective_three %>
+  </p>
+  <p>
+    <%= f.label :professor_adjective_one %><br />
+    <%= f.text_field :professor_adjective_one %>
+  </p>
+  <p>
+    <%= f.label :professor_adjective_two %><br />
+    <%= f.text_field :professor_adjective_two %>
+  </p>
+  <p>
+    <%= f.label :professor_adjective_three %><br />
+    <%= f.text_field :professor_adjective_three %>
+  </p>
+  <p>
+    <%= f.label :difficulty %><br />
+    <%= f.text_field :difficulty %>
+  </p>
+  <p>
+    <%= f.label :interest_level %><br />
+    <%= f.text_field :interest_level %>
+  </p>
+  <p>
+    <%= f.label :professor %><br />
+    <%= f.text_field :professor %>
+  </p>
+  <p>
+    <%= f.label :friend %><br />
+    <%= f.check_box :friend %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @review %> |
+<%= link_to 'Back', reviews_path %>
