@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of   :email
   validates_format_of       :email,    :with => Authentication.email_regex, :message => Authentication.bad_email_message
   
-  validate :valid_email_address?
+  #validate :valid_email_address?
 
   before_create :make_activation_code 
 

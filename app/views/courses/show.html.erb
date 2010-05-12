@@ -13,6 +13,10 @@
   <%=h @course.description %>
 </p>
 
-
+<% for review in @course.reviews %>
+	<%= link_to "Review", review_path(review.id) %><br>
+	<%= link_to "Show", review %>
+<% end %>
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>
+<%= link_to 'Review this Course', "/reviews/new?course=#{@course.id}" %>
