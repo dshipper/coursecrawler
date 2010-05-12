@@ -1,5 +1,4 @@
-Iteration 2
+Iteration 3
 This iteration will include:
--some authentication changes to make sure only authorized users can delete courses
--the ability to review a course
-
+-express your subject interest on signup
+-recommend a course based on interest
