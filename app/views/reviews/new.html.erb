@@ -3,7 +3,8 @@
 <% form_for(@review) do |f| %>
   <%= f.error_messages %>
  	<% if params[:course] %><input type="hidden" id="review_course_id" name="review[course_id]" value="<%= params[:course] %>" /><% end %>  
-
+	<% if params[:user] %><input type="hidden" id="review_user_id" name="review[user_id]" value="<%= params[:user] %>" /><% end %>  
+	
 	
     1. Please describe this course using three adjectives<br><br>
 	<%= f.text_field :course_adjective_one %>

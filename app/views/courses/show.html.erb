@@ -25,7 +25,29 @@ The average difficulty reported by students in this class was: <%= @average_diff
 The average interest level that this class provided was: <%= @average_interest_level %><br>
 The level of engagement that the professor provides is: <%= @average_professor %><br>
 <%= @average_recommend %>% of students would recommend this class to a friend.<br>
+<br>
+<%= "Your major is #{current_user.major}" %><br>
+<% if(current_user.major == "Math") %>
+	<%= @pct_math %>% of students in your expressed field of interest would recommend this course to a friend.
 <% end %>
-<%= link_to 'Review this Course', "/reviews/new?course=#{@course.id}" %> |
+<% if(current_user.major == "Science") %>
+	<%= @pct_science %>% of students in your expressed field of interest would recommend this course to a friend.
+<% end %>
+<% if(current_user.major == "Computers") %>
+	<%= @pct_computers %>% of students in your expressed field of interest would recommend this course to a friend.
+<% end %>
+<% if(current_user.major == "English") %>
+	<%= @pct_english %>% of students in your expressed field of interest would recommend this course to a friend.
+<% end %>
+<% if(current_user.major == "History") %>
+	<%= @pct_history %>% of students in your expressed field of interest would recommend this course to a friend.
+<% end %>
+<% if(current_user.major == "Languages") %>
+	<%= @pct_languages %>% of students in your expressed field of interest would recommend this course to a friend.
+<% end %>
+<br>
+
+<% end %>
+<%= link_to 'Review this Course', "/reviews/new?course=#{@course.id}&user=#{current_user.id}" %> |
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>

@@ -32,7 +32,32 @@ class CoursesController < ApplicationController
       professor = 0
     
       recommend = 0
-    
+      
+      total_math = 0
+      yes_math = 0
+      
+      total_science = 0
+      yes_science = 0
+      
+      total_computers = 0
+      yes_computers = 0
+      
+      total_english = 0
+      yes_english = 0
+      
+      total_history = 0
+      yes_history = 0
+      
+      total_languages = 0
+      yes_languages = 0
+      
+      @pct_math = 0.0
+      @pct_science = 0.0
+      @pct_computers = 0.0
+      @pct_english = 0.0
+      @pct_history = 0.0
+      @pct_languages = 0.0
+      
       for review in @course.reviews
         c_adj << review.course_adjective_one
         c_adj << review.course_adjective_two
@@ -47,11 +72,79 @@ class CoursesController < ApplicationController
         interest_level += review.interest_level
         professor += review.professor
       
-        if review.friend == true
+        if review.friend
           recommend += 1
+          logger.info "recommendations: #{recommend}"
         end
+        
+        #now lets count majors
+        #the following code is so ugly you may puke if you read it
+        #but we're going for development speed here...
+        user = User.find_by_id review.user_id
+        if(user)
+          if user.major == "Math"
+            total_math += 1
+            if review.friend
+              yes_math += 1
+            end
+          end
+        
+          if user.major == "Science"
+            total_science += 1
+            if review.friend
+              yes_science += 1
+            end
+          end
+        
+          if user.major == "Computers"
+            total_computers += 1
+            if review.friend
+              yes_computers += 1
+            end
+          end
+        
+          if user.major == "English"
+            total_english += 1
+            if review.friend
+              yes_english += 1
+            end
+          end
+        
+          if user.major == "History"
+            total_history += 1
+            if review.friend
+              yes_history += 1
+            end
+          end
+        
+          if user.major == "Languages"
+            total_languages += 1
+            if review.friend
+              yes_languages += 1
+            end
+          end
+        end
+            
+        
       end
-    
+      if(total_math > 0)
+        @pct_math = yes_math.to_f/total_math.to_f*100.0
+      end
+      if(total_science > 0)
+        @pct_science = yes_science.to_f/total_science.to_f*100.0
+      end
+      if(total_computers > 0)
+        @pct_computers = yes_computers.to_f/total_computers.to_f*100.0
+      end
+      if(total_english > 0)
+        @pct_english = yes_english.to_f/total_english.to_f*100.0
+      end
+      if(total_history > 0)
+        @pct_history =  yes_history.to_f/total_history.to_f*100.0
+      end
+      if(total_languages > 0)
+        @pct_language = yes_languages.to_f/total_languages.to_f*100.0
+      end
       c_adj.each do |c|
         course_adj_count[c] += 1
       end
@@ -70,10 +163,10 @@ class CoursesController < ApplicationController
         i+=1
       }
     
-      @average_difficulty = difficulty/@number_of_reviews
-      @average_interest_level = interest_level/@number_of_reviews
-      @average_professor = professor/@number_of_reviews
-      @average_recommend = recommend/@number_of_reviews
+      @average_difficulty = difficulty.to_f/@number_of_reviews.to_f
+      @average_interest_level = interest_level.to_f/@number_of_reviews.to_f
+      @average_professor = professor.to_f/@number_of_reviews.to_f
+      @average_recommend = recommend.to_f/@number_of_reviews.to_f*100.0
     end
     respond_to do |format|
       format.html # show.html.erb

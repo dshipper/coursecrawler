@@ -15,5 +15,25 @@
 <p><%= label_tag 'password_confirmation', 'Confirm Password' %><br/>
 <%= f.password_field :password_confirmation %></p>
 
+Please tell us about your major, intended major, or area of focus
+<p>
+	<%= f.radio_button :major, "Math" %>Math
+</p>
+<p>
+	<%= f.radio_button :major, "Science" %>Science
+</p>
+<p>
+	<%= f.radio_button :major, "Computers" %>Computers and Technology
+</p>
+<p>
+	<%= f.radio_button :major, "English" %>English
+</p>
+<p>
+	<%= f.radio_button :major, "History" %>History
+</p>
+<p>
+	<%= f.radio_button :major, "Languages" %>Languages
+</p>
+
 <p><%= submit_tag 'Sign up' %></p>
 <% end -%>
