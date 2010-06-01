@@ -1,0 +1,20 @@
+<%= render :partial => @discussion%>
+
+<p>
+	<%= link_to "Edit", edit_discussion_path(@discussion) %>
+	<%= link_to "Destory", @discussion, :method => :delete, :confirm => "Are you sure?" %>
+	<%= link_to "See All Posts", discussion_path %>
+</p>
+
+<h2>Comments</h2>
+<div id="comments">
+	<%= render :partial => @discussion.comments %>
+</div>
+
+<% form_for [@discussion, Comment.new] do |f| %>
+	<p>
+		<%= f.label :body, "New Reply" %><br>
+		<%= f.text_area :body %>
+	</p>
+	<p><%= f.submit "Add Reply" %></p>
+<% end %>

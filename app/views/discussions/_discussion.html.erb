@@ -1,0 +1,4 @@
+<% div_for discussion do %>
+	<h2><%= link_to_unless_current h(discussion.title), discussion %></h2>
+	<%= simple_format h(discussion.body)%>
+<% end %>
