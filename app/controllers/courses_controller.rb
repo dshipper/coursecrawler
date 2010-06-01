@@ -1,17 +1,21 @@
 class CoursesController < ApplicationController
   
-  before_filter :login_required
+  #before_filter :login_required
   # GET /courses
   # GET /courses.xml
   def index
     @pagetitle = "Course Crawler"
-    @courses = Course.all
-
+    if(!params[:search])
+      @courses = Course.all
+    else
+      @courses = Course.search(params[:search])
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @courses }
     end
   end
+
 
   # GET /courses/1
   # GET /courses/1.xml

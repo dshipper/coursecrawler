@@ -7,7 +7,7 @@ ActionController::Routing::Routes.draw do |map|
   map.login '/login', :controller => 'sessions', :action => 'new'
   map.register '/register', :controller => 'users', :action => 'create'
   map.signup '/signup', :controller => 'users', :action => 'new'
-  map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate'  
+  map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate' 
   map.resources :users
 
   map.resource :session
@@ -55,5 +55,5 @@ ActionController::Routing::Routes.draw do |map|
   # consider removing or commenting them out if you're using named routes and resources.
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
-  map.root :controller => "home"
+  map.root :controller => "home", :action => "index"
 end
