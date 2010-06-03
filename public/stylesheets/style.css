@@ -126,6 +126,33 @@ ul.nav{
 	padding-bottom: 10px;
 }
 
+
+.search-top{
+	background: url('images/search-top.png') no-repeat;	
+	width: 700px;
+	height: 10px;
+	overflow: hidden;
+}
+
+.search-repeat{
+	background: url('images/search-center.png') repeat;	
+	width: 700px;
+	height: 100px;
+	overflow: hidden;
+	font: 36px Helvetica;
+	color: white;
+	font-weight: bold;
+}
+
+.search-bottom{
+	background: url('images/search-bottom.png') no-repeat;	
+	width: 700px;
+	height: 10px;
+	overflow: hidden;
+	padding-bottom: 10px;
+}
+
+
 #login-right{
 	float: right;
 	padding-right: 250px;
@@ -162,13 +189,68 @@ ul.nav{
 	height: 130px;
 	position: relative;
 	border-top-style: solid;
-	border-top-width = .5px;
+	border-top-width: .5px;
 	border-top-color: black;
 	background: #7ab321;
 }
 
-.clearfooter {
-	height: 335px;
-	clear: both;
+.searchboxdiv
+{
+ margin:0;
+ height:50px;
+ width:500px;
+ background:url("images/input-background.png") no-repeat bottom; 
+ position: relative;
+ bottom: 10px;
+}
+.searchbox
+{
+ background:none;
+ border:none;
+ width:498px;
+ height:48px;
+ margin:0;
+ padding: 2px 7px 0px 7px;
+ font-family:Verdana, Arial, Helvetica, sans-serif;
+ font-size:30px;
+}
+.submitdiv{
+	position: relative;
+	bottom: -20px;
 }
 
+.course-title{
+	font: 25px Helvetica;
+}
+
+.content-left{
+	width: 445px;
+	padding-right: 5px;
+}
+
+.content-right{
+	float: right;
+	width: 445px;
+	padding-left: 5px;
+}
+
+.third-content-left{
+	width: 395px;
+	padding-right: 5px;
+}
+
+.super-third-content-right{
+	width: 600px;
+	float: right;
+}
+
+.inner-third-content-right{
+	width: 295px;
+	padding-left: 5px;
+	float: right;
+}
+
+.inner-third-content-left{
+	width: 295px;
+	padding-left: 5px;
+}

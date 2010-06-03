@@ -1,4 +1,8 @@
+<% if !params[:search ]%>
 <h1>Listing courses</h1>
+<% else %>
+<h1>Search results</h1>
+<% end %>
 <table>
   <tr>
     <th>Name</th>
@@ -7,12 +11,14 @@
   </tr>
 
 <% @courses.each do |course| %>
+  
   <tr>
     <td><%=h course.name %></td>
     <td><%=h course.teacher_name %></td>
     <td><%=h course.description %></td>
     <td><%= link_to 'Show', course %></td>
-    <td><%= link_to 'Edit', edit_course_path(course) %></td>
+    
+	<td><%= link_to 'Edit', edit_course_path(course) %></td>
     <td><%= link_to 'Destroy', course, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
@@ -20,4 +26,4 @@
 
 <br />
 
-<%= link_to 'New course', new_course_path %>
+<b>Didn't find what you were looking for? Add a new course <%= link_to 'here.', new_course_path %></b>

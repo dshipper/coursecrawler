@@ -1,7 +1,10 @@
 <% if !logged_in? %>
 	<div id="main-right">
-		<h1>Log In to Course Crawler</h1>
-
+		<%= image_tag "main-image.png" %>
+	</div>
+	<div id="main-left">
+		<h1>Welcome to Course Crawler</h1>
+		Find college courses that don't suck with Course Crawler.
 		<% form_tag session_path do -%>
 		<p><%= label_tag 'login' %><br />
 		<%= text_field_tag 'login', @login %></p>
@@ -9,25 +12,30 @@
 		<p><%= label_tag 'password' %><br/>
 		<%= password_field_tag 'password', nil %></p>
 
-		<!-- Uncomment this if you want this functionality
 		<p><%= label_tag 'remember_me', 'Remember me' %>
 		<%= check_box_tag 'remember_me', '1', @remember_me %></p>
-		-->
 
 		<p><%= submit_tag 'Log in' %></p>
 		<% end -%>
-	</div>
-	<div id="main-left">
-		<%= image_tag "main-image.png" %>
+		
 	</div>
 <% else %>
-	<% form_tag  courses_path, :method => "get" do %>
-		<p>
-			<%= text_field_tag :search, params[:search] %>
-			<%= submit_tag "Search", :name => nil %>
-		</p>
-	<% end %>
-	Your major is: <%= current_user.major %>
+	<center>
+	<div class="search-top"></div>
+	<div class="search-repeat">
+		find a course to review or take
+		<div class="searchboxdiv">
+		<% form_tag  courses_path, :method => "get" do %>
+			<p>
+				<input id="search" name="search" type="text" class="searchbox">
+				<div class="submitdiv"><%= submit_tag "Search", :name => nil %></div>
+			</p>
+		<% end %>
+		</div>
 	
+	</div>
+	<div class="search-bottom"></div>
+		<h3>Course Crawler allows you to find courses that interest you and rate courses that you've already taken.</h2>	
+	</center>
 <% end %>
 

@@ -1,3 +1,25 @@
+<span class="course-title">COURSE NAME: </span><span><%=h @course.name.upcase %></span><span class="course-title"> PROFESSOR: </span><span><%=h @course.teacher_name.upcase %></span><span class="course-title"> REVIEWS: </span><span><%=h @number_of_reviews %></span><br>
+<br>
+<div class="content-right">
+	&nbsp;&nbsp;&nbsp;<b>Course described in three adjectives</b><br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0486ff;"><%=h "#{@course_adj[0]}, #{@course_adj[1]}, #{@course_adj[2]}" %></span><br><br>
+	&nbsp;&nbsp;&nbsp;<b>Professor described in three adjectives</b><br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0486ff;"><%= "#{@prof_adj[0]}, #{@prof_adj[1]}, #{@prof_adj[2]}" %></span><br><br>
+	Percent of students who would recommend this course to a friend
+	<span class="progressBar" id="element3"><%= @average_recommend.to_i %>%</span><br>
+</div>
+<div class="content-left">
+	<b>Description</b><br>
+	<%=h @course.description %>
+	<br><br>
+	Average Difficulty<br>
+    <span class="progressBar" id="element2"><%= (@average_difficulty*10).to_i %>%</span><br><br>
+	Average Interest Level<br>
+	<span class="progressBar" id="element1"><%= (@average_interest_level*10).to_i %>%</span>
+	
+
+</div>
+
 <p>
   <b>Name:</b>
   <%=h @course.name %>
